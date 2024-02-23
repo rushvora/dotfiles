@@ -1,0 +1,39 @@
+
+#	This is Git's per-user configuration file.
+[user]
+	name = Rushabh Vora
+	email = rushvora@gmail.com
+	signingkey = 148477FA86F6D87F
+[commit]
+	gpgsign = true
+    verbose = true
+[core]
+    editor = nvim
+    pager = delta
+[interactive]
+    diffFilter = "delta --color-only"
+[diff]
+    algorithm = histogram
+[branch]
+    sort = committerdate
+[tag]
+    sort = taggerdate
+[fetch]
+    prune = true
+    prunetags = true
+[pull]
+	rebase = false
+[push]
+	followTags = true
+	autoSetupRemote = true
+[init]
+    defaultBranch = main
+[merge]
+    conflictstyle = zdiff3
+[rerere]
+    enabled = true
+[includeIf "gitdir:/home/rushvora/del-sol/"]
+	path = /home/rushvora/del-sol/.gitconfig
+#	[includeIf "gitdir:/home/rushvora/Code/del-sol/"]
+	# path = /home/rushvora/del-sol/.gitconfig
+
