@@ -79,7 +79,7 @@ bindkey -v
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 source /usr/share/doc/pkgfile/command-not-found.zsh
-plugins=(ssh-agent git gitfast gpg-agent aws command-not-found git-escape-magic gulp httpie npm thefuck zsh-vi-mode vscode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(ssh-agent git gitfast gpg-agent aws command-not-found git-escape-magic gulp httpie npm thefuck zsh-vi-mode vscode zsh-fzf-history-search zsh-autosuggestions zsh-syntax-highlighting)
 
 # Loading SSH identities
 zstyle :omz:plugins:ssh-agent lazy yes identities rushvora-github_rsa rushvora-bitbucket_rsa ds-rv-bitbucket alt-github rv-pi4 adi-pi
@@ -107,6 +107,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -121,8 +122,9 @@ eval "$(rbenv init - zsh)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# export PATH="$GOROOT/bin:$PATH" // not working, GOROOT is undefined/blank
-# export PATH="$PATH:$GOPATH/bin" // not working, GOPATH is undefined/blank
+# export PATH="$GOROOT/bin:$PATH" # only works when go is used via goenv instead of system
+# export PATH="$PATH:$GOPATH/bin" # only works when go is used via goenv instead of system
+
 # if [ $GOROOT ]; then
 #   export PATH="$GOROOT/bin:$PATH"
 # fi
