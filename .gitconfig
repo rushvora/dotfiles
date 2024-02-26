@@ -9,9 +9,11 @@
     verbose = true
 [core]
     editor = nvim
-    pager = delta
+    pager = "delta --true-color always --paging always"
 [interactive]
-    diffFilter = "delta --color-only"
+    diffFilter = "delta --color-only --features=interactive"
+[delta "interactive"]
+    keep-plus-minus-markers = false
 [diff]
     algorithm = histogram
 [branch]
