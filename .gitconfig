@@ -10,6 +10,12 @@
 [core]
     editor = nvim
     pager = "delta --true-color always --paging always"
+[include]
+    path = /home/rushvora/.config/delta/delta-themes.gitconfig
+[delta]
+    # features = mantis-shrimp
+    features = calochortus-lyallii
+    # features = tangara-chilensis
 [interactive]
     diffFilter = "delta --color-only --features=interactive"
 [delta "interactive"]
