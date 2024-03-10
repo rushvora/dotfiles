@@ -1,9 +1,11 @@
 set number
 set nocompatible
+set timeoutlen=1000 ttimeoutlen=10
 
 call plug#begin()
 
 Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
