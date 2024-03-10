@@ -23,7 +23,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
 bindkey -v
+
+# For instantaneous switch to normal mode
+KEYTIMEOUT=1
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -82,7 +87,7 @@ bindkey -v
 # To prevent overriding fzf keybinds
 ZVM_INIT_MODE=sourcing
 source /usr/share/doc/pkgfile/command-not-found.zsh
-plugins=(ssh-agent git gitfast gpg-agent aws command-not-found fzf git-escape-magic gulp httpie npm thefuck vscode zsh-fzf-history-search zsh-vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(ssh-agent git gitfast gpg-agent aws command-not-found fzf git-escape-magic gulp httpie thefuck vscode zsh-fzf-history-search vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 # Loading SSH identities
 zstyle :omz:plugins:ssh-agent lazy yes identities rushvora-github_rsa rushvora-bitbucket_rsa ds-rv-bitbucket alt-github rv-pi4 adi-pi
