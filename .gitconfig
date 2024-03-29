@@ -37,7 +37,8 @@
 [init]
     defaultBranch = main
 [merge]
-    conflictstyle = zdiff3
+#    conflictstyle = zdiff3
+    conflictstyle = merge
 [rerere]
     enabled = true
 [includeIf "gitdir:/home/rushvora/del-sol/"]

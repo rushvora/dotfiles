@@ -87,10 +87,10 @@ KEYTIMEOUT=1
 # To prevent overriding fzf keybinds
 ZVM_INIT_MODE=sourcing
 source /usr/share/doc/pkgfile/command-not-found.zsh
-plugins=(ssh-agent git gitfast gpg-agent aws command-not-found fzf git-escape-magic gulp httpie thefuck vscode zsh-fzf-history-search vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(ssh-agent git gitfast gpg-agent aws command-not-found fzf git-escape-magic gulp httpie npm thefuck vscode zsh-fzf-history-search vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 # Loading SSH identities
-zstyle :omz:plugins:ssh-agent lazy yes identities rushvora-github_rsa rushvora-bitbucket_rsa ds-rv-bitbucket alt-github rv-pi4 adi-pi
+zstyle :omz:plugins:ssh-agent lazy yes identities rushvora-github_rsa rushvora-bitbucket_rsa ds-rv-bitbucket alt-github rv-pi4 adi-pi rv-dsmbp
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
