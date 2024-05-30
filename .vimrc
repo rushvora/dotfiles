@@ -1,6 +1,7 @@
 set number
 set nocompatible
 set timeoutlen=1000 ttimeoutlen=10
+set clipboard+=unnamedplus
 
 call plug#begin()
 

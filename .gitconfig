@@ -41,6 +41,7 @@
     conflictstyle = merge
 [rerere]
     enabled = true
+    autoupdate = true
 [includeIf "gitdir:/home/rushvora/del-sol/"]
 	path = /home/rushvora/del-sol/.gitconfig
 #	[includeIf "gitdir:/home/rushvora/Code/del-sol/"]

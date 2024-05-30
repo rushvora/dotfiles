@@ -111,6 +111,8 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/zshrc.env
 
 # User configuration
+NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
 export GOENV_ROOT="$HOME/.goenv"
