@@ -122,8 +122,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 export GPG_TTY=$TTY
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export THEFUCK_PRIORITY="git_hook_bypass=1100" # remove once handling of "gp" (git push) works as expected
 eval "$(nodenv init -)"
 eval "$(goenv init -)"
