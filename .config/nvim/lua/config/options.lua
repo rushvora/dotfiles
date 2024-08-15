@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.opt.ruler = true
 vim.opt.backspace = indent, eol, start
+vim.opt.wrapscan = false
