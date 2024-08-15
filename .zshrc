@@ -90,7 +90,7 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 plugins=(ssh-agent git gitfast gpg-agent aws command-not-found fzf git-escape-magic gulp httpie npm thefuck vscode zsh-fzf-history-search vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 # Loading SSH identities
-zstyle :omz:plugins:ssh-agent lazy yes identities rushvora-github_rsa rushvora-bitbucket_rsa ds-rv-bitbucket alt-github rv-pi4 adi-pi rv-dsmbp
+zstyle :omz:plugins:ssh-agent lazy yes identities rushvora-github_rsa rushvora-bitbucket_rsa ds-rv-bitbucket alt-github rv-pi4 adi-pi rv-dsmbp seedwave
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -111,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/zshrc.env
 
 # User configuration
+source /etc/profile.d/google-cloud-cli.sh
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/.local/bin:$PATH"
