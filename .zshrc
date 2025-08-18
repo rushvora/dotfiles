@@ -132,6 +132,7 @@ eval $(thefuck --alias)
 eval "$(rbenv init - zsh)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(uvx --generate-shell-completion zsh)"
 
 # export PATH="$GOROOT/bin:$PATH" # only works when go is used via goenv instead of system
 # export PATH="$PATH:$GOPATH/bin" # only works when go is used via goenv instead of system
@@ -200,12 +201,14 @@ alias ip6="dig @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short 
 alias vpndsstart="sudo systemctl start pritunl-client"
 alias vpndsstop="sudo systemctl stop pritunl-client"
 alias vpndsstat="systemctl status pritunl-client"
-alias dsvpn="pritunl-client start myvqikuyqc0jlpxi -m=ovpn -p $PRITUNL_PASSWORD"
-alias dsvpndisc="pritunl-client stop myvqikuyqc0jlpxi"
-alias dsprodvpn="pritunl-client start hc1kymosltjym2rp -m=ovpn -p $PRITUNL_PASSWORD"
-alias dsprodvpndisc="pritunl-client stop hc1kymosltjym2rp"
-alias dsnlbvpn="pritunl-client start r7yew35uscxwmc8s -m=ovpn -p $PRITUNL_PASSWORD"
-alias dsnlbvpndisc="pritunl-client stop r7yew35uscxwmc8s"
+alias dsvpn="pritunl-client start ofiatqybisuw9ndk -m=ovpn -p $PRITUNL_PASSWORD"
+alias dsvpndisc="pritunl-client stop ofiatqybisuw9ndk"
+alias dsprodvpn="pritunl-client start 1d83fva0z3qy3psf -m=ovpn -p $PRITUNL_PASSWORD"
+alias dsprodvpndisc="pritunl-client stop 1d83fva0z3qy3psf"
+# alias dsprodnlbvpn="pritunl-client start gpoh51p -m=ovpn -p $PRITUNL_PASSWORD"
+# alias dsprodnlbvpndisc="pritunl-client stop gpoh51p"
+alias dsnlbvpn="pritunl-client start qrjcfqpgafpegzlr -m=ovpn -p $PRITUNL_PASSWORD"
+alias dsnlbvpndisc="pritunl-client stop qrjcfqpgafpegzlr"
 alias dsvpnstat="pritunl-client list"
 alias dsvpnstatus="watch pritunl-client list"
 alias qalc="nocorrect qalc"
@@ -224,6 +227,7 @@ alias getfilests="sudo tailscale file get ./"
 alias afsstart="sudo systemctl start netatalk.service"
 alias afsstop="sudo systemctl stop netatalk.service"
 alias afstat="systemctl status netatalk.service"
+alias deldir="find . -type d -empty -delete"
 # alias plexmount="sudo mount -t ntfs /dev/nvme2n1p1 /mnt/ntfs"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

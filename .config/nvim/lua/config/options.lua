@@ -4,3 +4,8 @@
 vim.opt.ruler = true
 vim.opt.backspace = indent, eol, start
 vim.opt.wrapscan = false
+vim.o.tabstop = 2
+vim.o.expandtab = true
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+vim.opt.wrap = true
