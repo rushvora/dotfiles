@@ -87,7 +87,8 @@ KEYTIMEOUT=1
 # To prevent overriding fzf keybinds
 ZVM_INIT_MODE=sourcing
 source /usr/share/doc/pkgfile/command-not-found.zsh
-plugins=(ssh-agent git gitfast gpg-agent aws command-not-found fzf git-escape-magic gulp httpie npm thefuck vscode zsh-fzf-history-search vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+# Removed vscode plugin as it's not required in a headless environment. Add it back for macOS or WSL environments.
+plugins=(ssh-agent git gitfast gpg-agent aws command-not-found fzf git-escape-magic gulp httpie npm thefuck zsh-fzf-history-search vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 # Loading SSH identities
 zstyle :omz:plugins:ssh-agent lazy yes identities rushvora-github_rsa rushvora-bitbucket_rsa ds-rv-bitbucket alt-github rv-pi4 adi-pi rv-dsmbp seedwave
@@ -111,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/zshrc.env
 
 # User configuration
-source /etc/profile.d/google-cloud-cli.sh
+# source /etc/profile.d/google-cloud-cli.sh
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$HOME/.local/bin:$PATH"
@@ -119,7 +120,7 @@ export PATH="$HOME/.nodenv/bin:$PATH"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="$HOME/.rbenv/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 export GPG_TTY=$TTY
@@ -129,10 +130,12 @@ export THEFUCK_PRIORITY="git_hook_bypass=1100" # remove once handling of "gp" (g
 eval "$(nodenv init -)"
 eval "$(goenv init -)"
 eval $(thefuck --alias)
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(uvx --generate-shell-completion zsh)"
+eval $(dircolors ~/.dircolors)
+export AUTH0_CLI_KEYRING=false
 
 # export PATH="$GOROOT/bin:$PATH" # only works when go is used via goenv instead of system
 # export PATH="$PATH:$GOPATH/bin" # only works when go is used via goenv instead of system
@@ -201,13 +204,22 @@ alias ip6="dig @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short 
 alias vpndsstart="sudo systemctl start pritunl-client"
 alias vpndsstop="sudo systemctl stop pritunl-client"
 alias vpndsstat="systemctl status pritunl-client"
-alias dsvpn="pritunl-client start ofiatqybisuw9ndk -m=ovpn -p $PRITUNL_PASSWORD"
+# alias dsvpn="pritunl-client start ofiatqybisuw9ndk -m=ovpn -p $PRITUNL_PASSWORD"
+dsvpn() {
+  pritunl-client start ofiatqybisuw9ndk -m=ovpn -p $PRITUNL_PASSWORD"$1"
+}
 alias dsvpndisc="pritunl-client stop ofiatqybisuw9ndk"
-alias dsprodvpn="pritunl-client start 1d83fva0z3qy3psf -m=ovpn -p $PRITUNL_PASSWORD"
+# alias dsprodvpn="pritunl-client start 1d83fva0z3qy3psf -m=ovpn -p $PRITUNL_PASSWORD"
+dsprodvpn() {
+  pritunl-client start 1d83fva0z3qy3psf -m=ovpn -p $PRITUNL_PASSWORD"$1"
+}
 alias dsprodvpndisc="pritunl-client stop 1d83fva0z3qy3psf"
 # alias dsprodnlbvpn="pritunl-client start gpoh51p -m=ovpn -p $PRITUNL_PASSWORD"
 # alias dsprodnlbvpndisc="pritunl-client stop gpoh51p"
-alias dsnlbvpn="pritunl-client start qrjcfqpgafpegzlr -m=ovpn -p $PRITUNL_PASSWORD"
+# alias dsnlbvpn="pritunl-client start qrjcfqpgafpegzlr -m=ovpn -p $PRITUNL_PASSWORD"
+dsnlbvpn() {
+  pritunl-client start qrjcfqpgafpegzlr -m=ovpn -p $PRITUNL_PASSWORD"$1"
+}
 alias dsnlbvpndisc="pritunl-client stop qrjcfqpgafpegzlr"
 alias dsvpnstat="pritunl-client list"
 alias dsvpnstatus="watch pritunl-client list"
@@ -232,6 +244,7 @@ alias deldir="find . -type d -empty -delete"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -242,4 +255,12 @@ alias deldir="find . -type d -empty -delete"
 
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
+# complete -o nospace -C /usr/bin/terraform terraform
+
+# pnpm
+export PNPM_HOME="/home/rushvora/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -42,8 +42,13 @@
 [rerere]
     enabled = true
     autoupdate = true
+[credential]
+    helper = "cache --timeout=604800"
 [includeIf "gitdir:/home/rushvora/del-sol/"]
 	path = /home/rushvora/del-sol/.gitconfig
+[includeIf "gitdir:/home/rushvora/ups/"]
+    path = /home/rushvora/ups/.gitconfig
+[includeIf "gitdir:/home/rushvora/Code/del-sol/pocs/"]
+    path = /home/rushvora/del-sol/.gitconfig
 #	[includeIf "gitdir:/home/rushvora/Code/del-sol/"]
 	# path = /home/rushvora/del-sol/.gitconfig
-
